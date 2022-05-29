@@ -28,6 +28,7 @@ const Modal = ({handleClose, text}) => {
   return (
     <Backdrop onClick={handleClose}>
         <motion.div
+        drag
         //sekanti eilute neileizia uzsidaryti betkur paspaudus modalo viduje
         onClick={(e)=>e.stopPropagation()}
         variants={dropIn}
@@ -35,8 +36,8 @@ const Modal = ({handleClose, text}) => {
         animate="visible"
         exit='exit'
         className="modal">
-
-        {text}
+        <button onClick={handleClose}>Close</button>
+        <p>{text}</p>
         </motion.div>
     </Backdrop>
   )
