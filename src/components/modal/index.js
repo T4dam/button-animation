@@ -1,6 +1,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 import Backdrop from '../backdrop';
+import Box from '../box';
 
 const dropIn = {
     hidden: {
@@ -29,6 +30,12 @@ const Modal = ({handleClose, text}) => {
     <Backdrop onClick={handleClose}>
         <motion.div
         drag
+        dragConstraints={{
+            top: 20,
+            bottom: 50,
+            left: -20,
+            right: 50,
+        }}
         //sekanti eilute neileizia uzsidaryti betkur paspaudus modalo viduje
         onClick={(e)=>e.stopPropagation()}
         variants={dropIn}
@@ -37,6 +44,7 @@ const Modal = ({handleClose, text}) => {
         exit='exit'
         className="modal">
         <button onClick={handleClose}>Close</button>
+        <Box />
         <p>{text}</p>
         </motion.div>
     </Backdrop>
